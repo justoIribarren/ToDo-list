@@ -1,0 +1,73 @@
+@use './abstract/mixins';
+@import './abstract/variables';
+.main{
+    @include mixins.flex(start, start, column);
+    gap: 10px;
+    padding: 15px;
+    background-color: $bg-light-1;
+    width: 270px;
+    height: 500px;
+    max-height: 500px;
+    border-radius: 5px;
+    @media screen and (min-width: 375px){width: 300px}
+    @media screen and (min-width: 768px){width: 400px}
+    &__actions{
+        @include mixins.flex(center, space-between, row);
+        width: 100%;
+        gap: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $font-light-2;
+        .buttons{
+            @include mixins.flex(center, space-between, row);
+            flex-flow: row-reverse;
+            gap: 10px;
+        }
+        
+    }
+    &__list{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 14px;
+        overflow-y: auto;
+        &--task{
+            @include mixins.flex(center, space-between, row);
+            gap: 10px;
+            padding-left: 5px;
+            border-left: 2px solid $bg-dark-1
+        }
+        &::-webkit-scrollbar {-webkit-appearance: none }
+        &::-webkit-scrollbar:vertical { width:15px }
+        &::-webkit-scrollbar-thumb {
+            background-color: $bg; 
+            border-left: 12px solid $bg-light-1;
+        }
+    }
+    &__header{
+        @include mixins.flex(end, space-between, row);
+        gap: 10px;
+        flex-wrap:wrap-reverse;
+        width: 100%;
+        margin-bottom: 5px;
+        
+        p{font-size: 12px}
+        .hour{
+            color: $font-dark-1;
+            font-weight: 500
+        }
+    }
+    .button{
+        @include mixins.flex(center, space-between, row);
+        gap: 10px;
+    }
+    .completed{
+        p{
+            text-decoration-line: line-through;
+            color: $font-dark-2;
+        }
+        border-left: 2px solid $bg
+    }
+    button{color: $font-dark-1}
+}

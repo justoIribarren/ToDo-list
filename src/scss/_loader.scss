@@ -1,0 +1,32 @@
+@use './abstract/mixins';
+@import './abstract/variables';
+
+.start{
+    @include mixins.flex(center, center, row);
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: $bg;
+    &__user{
+        @include mixins.flex(start, start, column);
+        gap: 10px;
+        width: 200px;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: $bg-light-1;
+        &--form{
+            @include mixins.flex(center, center, row);
+            width: 100%;
+            padding-bottom: 5px;
+            border-bottom: 1px solid $font-light-2;
+        }
+    }
+    button{
+        border-radius: 30px;
+        padding: 5px;
+        background-color: $bg;
+        color: $font-light-1;
+    }
+}
